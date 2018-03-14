@@ -1,0 +1,42 @@
+<div class="card">
+    <img class="card-img-top" src="{{vivienda.foto}}" alt="{{vivienda.nombre}}" data-toggle="modal" data-target="#modalFoto" title="Pulsa para ver más grande">
+    <div class="card-body row">
+      <div class="col-md-6">
+        <h3>{{vivienda.nombre}}</h3>
+        <p class="card-text">
+          <span [textContent]="(vivienda.alquiler)? 'Alquiler: ' : 'Compra: ' "></span>
+          {{vivienda.precio}} €
+        </p>
+        <p><i class="fas fa-map-marker"></i> {{vivienda.direccion}}</p>
+        <p><i class="fas fa-bed"></i> {{vivienda.habitaciones}}</p>
+      </div>
+    
+      <div class="col-md-6" id="detalles-vivienda">
+        <h4>Servicios</h4>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let servicio of vivienda.servicios">
+            <i [class]="(servicio.disponible)? 'fas fa-check-square' : 'fas fa-times'"></i>
+            {{servicio.nombre}}
+          </li>
+        </ul>
+      </div> 
+    </div>
+  </div>
+
+  <!-- Modal de la foto-->
+<div class="modal fade" id="modalFoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">{{vivienda.nombre}}</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <img class="img-rounded" src="{{vivienda.foto}}" alt="{{vivienda.nombre}}">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>

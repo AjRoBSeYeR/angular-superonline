@@ -1,0 +1,26 @@
+.container-filtro {
+    margin-top: 70px;
+
+    /* #slider12b .slider-track-low, #slider12c .slider-track-low {
+        background: red;
+    } */
+
+    .rango-precio {
+        input {
+            width: 30%;
+        }
+    }
+
+    .lista-viviendas {
+        .seleccionado {
+            border: 5px solid orangered;
+        }
+        .card {
+            margin: 0 0 10px 0;
+            height: 100%;
+            img {
+                height: 50%;
+            }
+        }
+    }
+}
