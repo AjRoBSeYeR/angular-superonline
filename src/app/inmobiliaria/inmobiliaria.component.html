@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
   <a class="navbar-brand" href="#">Inmobiliaria IparHouse</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -38,20 +38,18 @@
     <div class="input-group" id="buscadorViviendas">
       <input type="text" class="form-control" placeholder="Busca vivienda por nombre o dirección" [(ngModel)]="searchText" aria-describedby="basic-addon2">
     </div>
-    <br>
-    <!-- Tipo de compra -->
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-secondary active">
+    <!-- Tipo de transacción -->
+    <div class="btn-group btn-group-toggle filtro-lista" data-toggle="buttons">
+      <label class="btn btn-primary active">
         <input type="radio" name="options" id="todas" autocomplete="off" checked> Todas
       </label>
-      <label class="btn btn-secondary">
+      <label class="btn btn-primary">
         <input type="radio" name="options" id="alquiler" autocomplete="off"> Alquiler
       </label>
-      <label class="btn btn-secondary">
+      <label class="btn btn-primary">
         <input type="radio" name="options" id="venta" autocomplete="off"> Venta
       </label>
     </div>
-    <br><br>
     <!-- Rango de precio -->
     <!-- <div class="slider slider-horizontal" id="slider12b">
       <div class="slider-track">
@@ -74,8 +72,8 @@
       </div>
     </div> -->
     
-    <form action="#"  class="form-group form-inline">
-      <p id="rango-precio" class="clearfix"><b>Rango de precio: </b></p>
+    <form action="#"  class="form-group form-inline clearfix">
+      <p id="rango-precio"><b>Rango de precio: </b></p>
       <div class="rango-precio">
         <span>Min </span><input class="form-control" type="number" min="0" #precioMin>
         <span>Max </span><input class="form-control" type="number" min="precioMin.value" #precioMax>
@@ -86,13 +84,14 @@
     <h2>Lista de viviendas</h2>
     <div class="card-deck lista-viviendas row">
       <!-- [class.seleccionado]="vivienda === vivienda" -->
-      <div class="mini-casa col-sm-6" *ngFor="let vivienda of listaViviendas" (click)="select($event.target, vivienda)">
-        <div class="card miniatura">
+      <div class="miniatura col-sm-6" *ngFor="let vivienda of listaViviendas" (click)="select($event.target, vivienda)" title="Pulsa para ver detalle">
+        <div class="card">
           <img class="card-img-top" src="{{vivienda.foto}}" alt="{{vivienda.nombre}}">
           <div class="card-body">
-            <h5 class="card-title">{{vivienda.nombre}}</h5>
+            <h6 class="card-title">{{vivienda.nombre}}</h6>
             <p class="card-text">
-              {{vivienda.precio}} €
+              <span [textContent]="(vivienda.alquiler)? 'Alquiler: ' : 'Compra: ' "></span>
+              {{ vivienda.precio | currency:'EUR':'4.2-0' }} 
             </p>
           </div>
         </div>

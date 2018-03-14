@@ -12,8 +12,8 @@ Se puede usar un servidor local gracias al proyecto [json-server](https://github
 
 ### Instalar servidor
 
-`$ npm install -g json-server`
+`npm install -g json-server`
 
 ### Arrancar servidor
 
-`$ json-server --watch db.json`
+`json-server --watch db.json`

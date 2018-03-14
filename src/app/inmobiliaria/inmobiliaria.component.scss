@@ -5,22 +5,51 @@
         background: red;
     } */
 
-    .rango-precio {
-        input {
-            width: 30%;
+    #filtro-viviendas {
+        #buscadorViviendas {
+            margin-bottom: 10px;
         }
-    }
-
-    .lista-viviendas {
-        .seleccionado {
-            border: 5px solid orangered;
+    
+        .filtro-lista {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
         }
-        .card {
-            margin: 0 0 10px 0;
-            height: 100%;
-            img {
-                height: 50%;
+    
+        .rango-precio {
+            display: flex;
+            justify-content: space-between;
+            input {
+                width: 30%;
+            }
+        }
+    
+        .lista-viviendas {
+            margin: 0 0 20px 0;
+            height: 50vh;
+            overflow: auto;
+            .miniatura {
+                padding: 0 5px 0 5px;
+                margin-bottom: 20px;
+                .card {
+                    margin: 0 0 10px 0;
+                    height: 100%;
+                    img {
+                        height: 50%;
+                    }
+                    .card-body {
+                        padding: 10px;
+                        h6 {
+                            margin-bottom: 5px;
+                        }
+                    }
+                }
+            }
+            .seleccionado {
+                border: 5px solid rgb(0, 123, 255);
+                border-radius: 5px;
             }
         }
     }
+    
 }
