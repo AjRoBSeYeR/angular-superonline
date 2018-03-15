@@ -58,8 +58,8 @@
     },
     {
       "nombre": "San Mames",
-      "precio": 900,
-      "alquiler": true,
+      "precio": 20000000,
+      "alquiler": false,
       "habitaciones": 1,
       "foto": "http://www.cordobaxv.com.ar/website/wp-content/uploads/2017/06/Bilbao_San_Mam%C3%A9s_Stadium_4.jpg",
       "direccion": "Rafael Moreno Pitxitxi s/n, 48013 Bilbo",

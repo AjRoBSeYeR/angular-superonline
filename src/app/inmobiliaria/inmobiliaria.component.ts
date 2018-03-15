@@ -12,9 +12,13 @@ import { ViviendasService } from '../providers/viviendas.service';
 export class InmobiliariaComponent implements OnInit {
 
   // Atributos
-  listaViviendas: Vivienda[] = [];
+  listaMostrada: Vivienda[] = [];
+  listaCompleta: Vivienda[] = [];
   listaAlquiler: Vivienda[];
   listaCompra: Vivienda[];
+  filtroLista: string;    // tipo de lista que se va a filtrar: [todas, alquiler, venta]
+  precioMin: number;
+  precioMax: number;
 
   vivienda: Vivienda;
   temp = null;
@@ -43,7 +47,8 @@ export class InmobiliariaComponent implements OnInit {
         console.debug('peticion correcta %o', resultado);
         this.mapeo(resultado);
         if (this.vivienda.nombre === 'Vivienda' ) {
-          this.vivienda = this.listaViviendas[0];
+          this.vivienda = this.listaMostrada[0];
+          this.filtroLista = 'todas';
         }
       },
       error => {
@@ -71,10 +76,10 @@ export class InmobiliariaComponent implements OnInit {
                             );
                             vivienda.servicios = element.servicios;
 
-      this.listaViviendas.push(vivienda);
+      this.listaMostrada.push(vivienda);
     });
-
   }
+
 
   /**
    * Mostrar la vivienda seleccionada en el componente hijo 'ViviendaDetalle'
@@ -95,6 +100,12 @@ export class InmobiliariaComponent implements OnInit {
     }
     event.classList.add('seleccionado');
     this.temp = event;
+  }
+
+  filtrarLista(lista: string) {
+    console.log(`InmobiliariaComponent filtrarLista(${lista})`);
+
+    this.filtroLista = lista;
   }
 
 }

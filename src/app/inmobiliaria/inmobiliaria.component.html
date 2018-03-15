@@ -36,18 +36,18 @@
   <div id="filtro-viviendas" class="col-md-5">
     <!-- Buscador de viviendas -->
     <div class="input-group" id="buscadorViviendas">
-      <input type="text" class="form-control" placeholder="Busca vivienda por nombre o dirección" [(ngModel)]="searchText" aria-describedby="basic-addon2">
+      <input type="search" class="form-control" placeholder="Busca vivienda por nombre o dirección" [(ngModel)]="searchText" autofocus aria-describedby="basic-addon2" tabindex="1"             >
     </div>
     <!-- Tipo de transacción -->
     <div class="btn-group btn-group-toggle filtro-lista" data-toggle="buttons">
-      <label class="btn btn-primary active">
-        <input type="radio" name="options" id="todas" autocomplete="off" checked> Todas
+      <label class="btn btn-primary active" (click)="filtrarLista('todas')">
+        <input type="radio" name="options" id="todas" #filtrarTodas> Todas
       </label>
-      <label class="btn btn-primary">
-        <input type="radio" name="options" id="alquiler" autocomplete="off"> Alquiler
+      <label class="btn btn-primary" (click)="filtrarLista('alquiler')">
+        <input type="radio" name="options" id="alquiler" #filtrarAlquiler> Alquiler
       </label>
-      <label class="btn btn-primary">
-        <input type="radio" name="options" id="venta" autocomplete="off"> Venta
+      <label class="btn btn-primary" (click)="filtrarLista('compra')">
+        <input type="radio" name="options" id="venta" #filtrarCompra> Venta
       </label>
     </div>
     <!-- Rango de precio -->
@@ -72,20 +72,19 @@
       </div>
     </div> -->
     
-    <form action="#"  class="form-group form-inline clearfix">
+
       <p id="rango-precio"><b>Rango de precio: </b></p>
       <div class="rango-precio">
-        <span>Min </span><input class="form-control" type="number" min="0" #precioMin>
-        <span>Max </span><input class="form-control" type="number" min="precioMin.value" #precioMax>
+        <span>Min </span><input class="form-control" type="number" min="0" [max]="precioMax" [(ngModel)]="precioMin" tabindex="2">
+        <span>Max </span><input class="form-control" type="number" [min]="precioMin" [(ngModel)]="precioMax" tabindex="3">
       </div>
-    </form>
     
     <!-- Miniaturas de las viviendas -->
     <h2>Lista de viviendas</h2>
     <div class="card-deck lista-viviendas row">
       <!-- [class.seleccionado]="vivienda === vivienda" -->
-      <div class="miniatura col-sm-6" *ngFor="let vivienda of listaViviendas" (click)="select($event.target, vivienda)" title="Pulsa para ver detalle">
-        <div class="card">
+      <div class="forViviendas col-sm-6" *ngFor="let vivienda of listaMostrada | filterViviendas : searchText : filtroLista : precioMin : precioMax" (click)="select($event.target, vivienda)" title="Pulsa para ver detalle">
+        <div class="card miniatura">
           <img class="card-img-top" src="{{vivienda.foto}}" alt="{{vivienda.nombre}}">
           <div class="card-body">
             <h6 class="card-title">{{vivienda.nombre}}</h6>

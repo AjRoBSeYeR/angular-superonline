@@ -5,7 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Importar modulo HTTP
 import { HttpClientModule } from '@angular/common/http';
 
-
+// Pipes
+import { FilterViviendas } from './pipes/filter-viviendas.pipe';
 // Componentes
 import { AppComponent } from './app.component';
 import { UnoComponent } from './uno/uno.component';
@@ -16,8 +17,12 @@ import { ViviendaComponent } from './inmobiliaria/vivienda/vivienda.component';
 import { ViviendasService } from './providers/viviendas.service';
 
 
+
 @NgModule({
   declarations: [
+    // Pipes
+    FilterViviendas,
+    // Componentes
     AppComponent,
     UnoComponent,
     InmobiliariaComponent,
