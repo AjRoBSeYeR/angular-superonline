@@ -1,4 +1,5 @@
-<div class="card">
+<div class="detalle-vivienda">
+  <div class="card">
     <img class="card-img-top" src="{{vivienda.foto}}" alt="{{vivienda.nombre}}" data-toggle="modal" data-target="#modalFoto" title="Pulsa para ver más grande">
     <div class="card-body row">
       <div class="col-md-6">
@@ -11,9 +12,9 @@
         <p><i class="fas fa-bed"> </i> {{vivienda.habitaciones}} habitaciones</p>
       </div>
     
-      <div class="col-md-6" id="detalles-vivienda">
+      <div class="col-md-6" id="caracteristicas-vivienda">
         <h4>Servicios</h4>
-        <ul class="list-group">
+        <ul class="list-group lista-servicios">
           <li class="list-group-item" *ngFor="let servicio of vivienda.servicios">
             <i [class]="(servicio.disponible)? 'fas fa-check-square' : 'fas fa-times'"></i>
             {{servicio.nombre}}
@@ -22,6 +23,7 @@
       </div> 
     </div>
   </div>
+</div>
 
   <!-- Modal de la foto-->
 <div class="modal fade" id="modalFoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

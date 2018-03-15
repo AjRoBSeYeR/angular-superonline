@@ -32,74 +32,84 @@
 </nav>
 
 <div class="row container-filtro">
-  <!-- Filtro de viviendas -->
-  <div id="filtro-viviendas" class="col-md-5">
-    <!-- Buscador de viviendas -->
-    <div class="input-group" id="buscadorViviendas">
-      <input type="search" class="form-control" placeholder="Busca vivienda por nombre o dirección" [(ngModel)]="searchText" autofocus aria-describedby="basic-addon2" tabindex="1"             >
-    </div>
-    <!-- Tipo de transacción -->
-    <div class="btn-group btn-group-toggle filtro-lista" data-toggle="buttons">
-      <label class="btn btn-primary active" (click)="filtrarLista('todas')">
-        <input type="radio" name="options" id="todas" #filtrarTodas> Todas
-      </label>
-      <label class="btn btn-primary" (click)="filtrarLista('alquiler')">
-        <input type="radio" name="options" id="alquiler" #filtrarAlquiler> Alquiler
-      </label>
-      <label class="btn btn-primary" (click)="filtrarLista('compra')">
-        <input type="radio" name="options" id="venta" #filtrarCompra> Venta
-      </label>
-    </div>
-    <!-- Rango de precio -->
-    <!-- <div class="slider slider-horizontal" id="slider12b">
-      <div class="slider-track">
-        <div class="slider-track-low" style="left: 0px; width: 0%;"></div>
-        <div class="slider-selection" style="left: 0%; width: 80%;"></div>
-        <div class="slider-track-high" style="right: 0px; width: 20%;"></div>
-        <div class="slider-handle min-slider-handle round" tabindex="0" style="left: 0%;"></div>
-        <div class="slider-handle max-slider-handle round" tabindex="0" style="left: 80%;"></div>
+  <div class="col-md-5" id="buscador">
+    <!-- Filtro de viviendas -->
+    <div id="filtro-viviendas">
+      <!-- Buscador de viviendas -->
+      <div class="input-group" id="buscadorViviendas">
+        <input type="search" class="form-control" placeholder="Busca vivienda por nombre o dirección" [(ngModel)]="searchText" autofocus aria-describedby="basic-addon2" tabindex="1"             >
       </div>
-        <div class="tooltip tooltip-main top" style="left: 40%; margin-left: -19.5px;">
-        <div class="tooltip-arrow"></div>
-        <div class="tooltip-inner">0 : 8</div>
+      <!-- Tipo de transacción -->
+      <div class="btn-group btn-group-toggle filtro-lista" data-toggle="buttons">
+        <label class="btn btn-primary active" (click)="filtrarLista('todas')">
+          <input type="radio" name="options" id="todas" #filtrarTodas> Todas
+        </label>
+        <label class="btn btn-primary" (click)="filtrarLista('alquiler')">
+          <input type="radio" name="options" id="alquiler" #filtrarAlquiler> Alquiler
+        </label>
+        <label class="btn btn-primary" (click)="filtrarLista('compra')">
+          <input type="radio" name="options" id="venta" #filtrarCompra> Venta
+        </label>
       </div>
-      <div class="tooltip tooltip-min top" style="left: 0%; margin-left: -11.5px;">
-        <div class="tooltip-arrow"></div>
-        <div class="tooltip-inner">0</div>
-      </div>
-      <div class="tooltip tooltip-max top" style="left: 80%; margin-left: -11.5px;">
-        <div class="tooltip-arrow"></div><div class="tooltip-inner">8</div>
-      </div>
-    </div> -->
-    
+      <!-- Rango de precio -->
+      <!-- <div class="slider slider-horizontal" id="slider12b">
+        <div class="slider-track">
+          <div class="slider-track-low" style="left: 0px; width: 0%;"></div>
+          <div class="slider-selection" style="left: 0%; width: 80%;"></div>
+          <div class="slider-track-high" style="right: 0px; width: 20%;"></div>
+          <div class="slider-handle min-slider-handle round" tabindex="0" style="left: 0%;"></div>
+          <div class="slider-handle max-slider-handle round" tabindex="0" style="left: 80%;"></div>
+        </div>
+          <div class="tooltip tooltip-main top" style="left: 40%; margin-left: -19.5px;">
+          <div class="tooltip-arrow"></div>
+          <div class="tooltip-inner">0 : 8</div>
+        </div>
+        <div class="tooltip tooltip-min top" style="left: 0%; margin-left: -11.5px;">
+          <div class="tooltip-arrow"></div>
+          <div class="tooltip-inner">0</div>
+        </div>
+        <div class="tooltip tooltip-max top" style="left: 80%; margin-left: -11.5px;">
+          <div class="tooltip-arrow"></div><div class="tooltip-inner">8</div>
+        </div>
+      </div> -->
+      
 
-      <p id="rango-precio"><b>Rango de precio: </b></p>
-      <div class="rango-precio">
-        <span>Min </span><input class="form-control" type="number" min="0" [max]="precioMax" [(ngModel)]="precioMin" tabindex="2">
-        <span>Max </span><input class="form-control" type="number" [min]="precioMin" [(ngModel)]="precioMax" tabindex="3">
-      </div>
-    
-    <!-- Miniaturas de las viviendas -->
-    <h2>Lista de viviendas</h2>
-    <div class="card-deck lista-viviendas row">
-      <!-- [class.seleccionado]="vivienda === vivienda" -->
-      <div class="forViviendas col-sm-6" *ngFor="let vivienda of listaMostrada | filterViviendas : searchText : filtroLista : precioMin : precioMax" (click)="select($event.target, vivienda)" title="Pulsa para ver detalle">
-        <div class="card miniatura">
-          <img class="card-img-top" src="{{vivienda.foto}}" alt="{{vivienda.nombre}}">
-          <div class="card-body">
-            <h6 class="card-title">{{vivienda.nombre}}</h6>
-            <p class="card-text">
-              <span [textContent]="(vivienda.alquiler)? 'Alquiler: ' : 'Compra: ' "></span>
-              {{ vivienda.precio | currency:'EUR':'4.2-0' }} 
-            </p>
+        <p id="rango-precio"><b>Rango de precio: </b></p>
+        <div class="rango-precio">
+          <span>Min </span><input class="form-control" type="number" min="0" [max]="precioMax" [(ngModel)]="precioMin" tabindex="2">
+          <span>Max </span><input class="form-control" type="number" [min]="precioMin" [(ngModel)]="precioMax" tabindex="3">
+        </div>
+      </div><!-- END #filtro-viviendas -->
+
+      <!-- Miniaturas de las viviendas -->
+      <div class="card panel-viviendas bg-white">
+        <div class="card-header bg-primary text-white">
+          <h5 class="card-title">Lista de viviendas</h5>
+        </div>
+        <div class="card-body">
+          <div class="card-deck lista-viviendas row">
+            <!-- [class.seleccionado]="vivienda === vivienda" -->
+            <div class="forViviendas col-sm-6" *ngFor="let vivienda of listaMostrada | filterViviendas : searchText : filtroLista : precioMin : precioMax" (click)="select($event.target, vivienda)" title="Pulsa para ver detalle">
+              <div class="card miniatura">
+                <img class="card-img-top" src="{{vivienda.foto}}" alt="{{vivienda.nombre}}">
+                <div class="card-body">
+                  <h6 class="card-title">{{vivienda.nombre}}</h6>
+                  <p class="card-text">
+                    <span [textContent]="(vivienda.alquiler)? 'Alquiler: ' : 'Compra: ' "></span>
+                    {{ vivienda.precio | currency:'EUR':'4.2-0' }} 
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-  </div><!-- END #filtro-viviendas -->
+    </div><!-- END parte izquierda "Buscador" -->
+  
+  
 
   <!-- Componente: ViviendaComponent -->
   <div id="vivienda-component" class="col-md-7">
       <app-vivienda [vivienda]="vivienda"></app-vivienda>
   </div>
+</div> 

@@ -19,14 +19,18 @@
         .rango-precio {
             display: flex;
             justify-content: space-between;
+            margin-bottom: 20px;
             input {
                 width: 30%;
             }
         }
-    
+    }
+
+    .panel-viviendas {
+        margin-bottom: 20px;
         .lista-viviendas {
             margin: 0 0 20px 0;
-            height: 100vh;
+            height: 50vh;
             overflow: auto;
             .forViviendas {
                 padding: 0 5px 0 5px;
@@ -49,5 +53,7 @@
             }
         }
     }
+        
+    
     
 }

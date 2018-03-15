@@ -1,18 +1,24 @@
+.detalle-vivienda {
+    #caracteristicas-vivienda {
+        .lista-servicios {
+            height: 135px;
+            overflow: auto;
+            svg.fa-times {
+                color: red;
+            }
+            
+            svg.fa-check-square {
+                color: green;
+            }
+        }
+    }
+}
+
 .modal-body {
 
     width: 100%;
 
     img {
         width: inherit;
-    }
-}
-
-#detalles-vivienda {
-    svg.fa-times {
-        color: red;
-    }
-    
-    svg.fa-check-square {
-        color: green;
     }
 }
