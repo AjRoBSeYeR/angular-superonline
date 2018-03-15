@@ -1,9 +1,13 @@
 .container-filtro {
     margin-top: 70px;
 
-    /* #slider12b .slider-track-low, #slider12c .slider-track-low {
-        background: red;
-    } */
+    .rent-icon {
+        position: absolute;
+        z-index: 10;
+        width: 25px;
+        height: 25px;
+        color: green;
+    }
 
     #filtro-viviendas {
         #buscadorViviendas {
@@ -14,6 +18,9 @@
             display: flex;
             justify-content: center;
             margin-bottom: 10px;
+            > label {
+                margin-top: 0;
+            }
         }
     
         .rango-precio {
@@ -34,10 +41,28 @@
             overflow: auto;
             .forViviendas {
                 padding: 0 5px 0 5px;
-                .card {
+                .miniatura {
                     margin: 0 0 10px 0;
+                    position: relative;
                     img {
                         height: 50%;
+                    }
+                    img.rent-icon {
+                        position: absolute;
+                        top: 10px;
+                        right: 5px;
+                        width: 50px;
+                        height: 50px;
+                        &[title="alquiler"] {
+                            background-color: limegreen;
+                            border-radius: 35px;
+                            padding: 10px;
+                        }
+                        &[title="compra"] {
+                            background-color: red;
+                            border-radius: 35px;
+                            border: 15px solid red;
+                        }
                     }
                     .card-body {
                         padding: 10px;
@@ -54,6 +79,8 @@
         }
     }
         
-    
+    #vivienda-component {
+        max-height: 60vh;
+    }
     
 }

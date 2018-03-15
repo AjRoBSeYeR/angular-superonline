@@ -1,6 +1,10 @@
 <div class="detalle-vivienda">
   <div class="card">
     <img class="card-img-top" src="{{vivienda.foto}}" alt="{{vivienda.nombre}}" data-toggle="modal" data-target="#modalFoto" title="Pulsa para ver más grande">
+    <img class="rent-icon" 
+    [src]="(vivienda.alquiler)? '/assets/img/rent-icon.png' : '/assets/img/sale-icon.png' " 
+    [alt]="(vivienda.alquiler)? 'icono alquiler' : 'icono compra'"
+    [title]="(vivienda.alquiler)? 'alquiler' : 'compra'" >
     <div class="card-body row">
       <div class="col-md-6">
         <h3>{{vivienda.nombre}}</h3>
