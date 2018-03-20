@@ -1,4 +1,4 @@
-# Web Inmobiliaria
+# Angular5 Inmobiliaria
 
 Inmobiliaria con filtros de busqueda según nombre de la vivienda, dirección, posibilidad de compra/alquiler y un rango de precio.
 
@@ -6,7 +6,7 @@ Muestra una lista de viviendas obtenidas de un servidor local (localhost:3000).
 
 Al pulsar sobre una miniatura de las viviendas, se muestra su detalle.
 
-##Instalación
+## Instalación
 `npm i` para descargar todas las librerias necesarias en node_modules.    
 `ng serve --open` arracar proyecto, primero es necesario preparar el servidor.
 
