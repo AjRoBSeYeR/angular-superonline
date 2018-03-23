@@ -1,0 +1,194 @@
+.navbar-right{
+    background-color: #88cc88;
+  }
+
+  ul.resumen{
+    background-color: #F5F5F5;
+    padding: 20px;
+
+    li{
+      list-style: none;
+
+      span{
+        width: 100px;
+        text-align: left;
+        display: inline-block;
+      }
+      span.price{
+        width: 75px;
+        text-align: right;
+        display: inline-block;
+      }
+    }
+    .total{
+      font-weight: 600;
+    }
+  }
+  
+  ul.dropdown-carrito{
+    min-width: 500px;
+  
+    li {
+      .item{
+        display: block;
+        padding: 3px 0px;
+        margin: 3px 0;
+        
+        &:after{
+          visibility: hidden;
+          display: block;
+          font-size: 0;
+          content: " ";
+          clear: both;
+          height: 0;
+        }
+      }
+  
+      .item-left{
+        float:left;
+        padding: 0px 0px 0px 15px;
+        width: 60%;
+  
+        span.item-info{
+          float:left;
+          width: 35%;
+          margin-left:10px; 
+  
+          span{
+            display:block;
+          }
+  
+          .precio{
+            font-size: 1.2em;
+            color: #000;
+            margin-top: 10px;
+          }
+  
+          .nombre_pro_carrito{
+            text-transform: uppercase;
+          }
+        }
+  
+        img{
+          float:left;
+          width: 35%;
+        }
+  
+        
+      }
+  
+      .item-right{
+        //float:right;
+        padding: 30px 0 0 0;
+        width: 60%;
+  
+        button{
+          margin-top:14px;
+        }
+       
+        .btn_cantidad_contendor{
+          display: inline;
+        }
+        
+        .btn-cantidad-carrito {
+          border: 1px solid #e1e1e1;
+          border-radius: 2rem;
+          padding: 0 .25rem;
+          margin: 0 auto;
+          display: inline-block;
+          vertical-align: middle;
+          background-color: #f7f7f7;
+          width: 100px;
+  
+            p {
+              margin: -12px 0 10px;
+            }
+          
+          .cantidad {
+              width: 40%;
+              border: none;
+              outline: none;
+              background-color: transparent;
+          }
+      
+          .btn-default {
+              background-color: transparent;
+          }
+      
+          .btn1,.btn2{
+              border: none;
+              outline: none;
+              vertical-align: top;
+              height: 2.2rem;
+              width: 2.2rem;
+              font-weight: 500;
+              font-size: 18px;
+              line-height: 2.2rem;
+              text-decoration: none;
+              font-weight: 500;
+              font-size: 18px;
+          }
+      }
+      
+       .btn{
+        margin: 0px;
+        background: transparent;
+       } 
+      }
+    }
+  }
+  
+  .items {
+    border-radius: 50%;
+    font-size: 0.8em;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    background: #609060;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    top: 7px;
+      left: 1px;
+      display: inline-block;
+  }
+  
+  i, .total_cesta{
+    display: inline-block;
+    font-size: 2em;
+    color: white;
+  }
+  
+  .fa-trash-alt{
+    color: #000000;
+  }
+  
+  nav.navbar{
+    ul.navbar-nav>li>a.carrito {
+      position: relative;
+    }
+  
+    nav.navbar ul.navbar-nav>li>a {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+  
+      i {
+        font-size: 1.5rem;
+        margin-top: -10px;
+        -webkit-transform: translateY(5px);
+        transform: translateY(5px);
+      }
+    }
+  
+    ul.navbar-nav>li>a.nav-link {
+      margin: 0 5px;
+      color: #333;
+    }
+  
+    .nav-link {
+      padding-right: .5rem;
+      padding-left: .5rem;
+    }
+  }
+  

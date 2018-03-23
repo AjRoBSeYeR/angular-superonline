@@ -1,28 +1,10 @@
-# Angular5 Inmobiliaria
+# SuperMercalo Online
 
-Inmobiliaria con filtros de busqueda según nombre de la vivienda, dirección, posibilidad de compra/alquiler y un rango de precio.
+Proyecto realizado con Angular 5 para simular un supermercado online.    
+Incluye carrito de la compra
 
-Muestra una lista de viviendas obtenidas de un servidor local (localhost:3000).
+## Development server
 
-Al pulsar sobre una miniatura de las viviendas, se muestra su detalle.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Instalación
-`npm i` para descargar todas las librerias necesarias en node_modules.    
-`ng serve --open` arracar proyecto, primero es necesario preparar el servidor.
-
-
-## Preparar servidor
-
-Se puede usar un servidor local gracias al proyecto [json-server](https://github.com/typicode/json-server) de GitHub.
-
-### Instalar servidor
-
-`npm install -g json-server`
-
-### Arrancar servidor
-
-`json-server --watch db.json`
-
-#### screenshot
-
-![Alt text](https://github.com/anderuraga/angular-inmobiliaria/blob/master/screenshot.png)
+![Alt text](https://github.com/anderuraga/angular-superonline/blob/master/resources/screenshot.png)

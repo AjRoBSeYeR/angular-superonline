@@ -1,0 +1,91 @@
+
+<!--barra navegacion-->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><h1>Supermercado</h1></li>
+        <li> <a>
+          <input type="text" class="form-control" placeholder="Buscar" [(ngModel)]="searchText">
+         </a>
+        </li>
+        <li>
+            <app-carrito [carrito]="carrito" 
+                         [total]="total"
+                         [subtotal]="subtotal"
+                         [descuentos]="descuentos"
+                         (eventoEmitir)="cambioCarrito($event)"></app-carrito>
+        </li>
+       </ul>
+    </div>
+  </div>
+</nav>
+
+<!--listado productos-->
+
+<div class="container">    
+  <div class="row">
+    <div class="col-md-3 col-sm-4" *ngFor="let producto of stock  | filter : searchText">
+      <div class="productos_listado">
+        <!--producto imagen-->
+         <div class="producto-img">
+              <div>
+                <!--círculo descuento-->
+                <span class="badge" title="En oferta" *ngIf="producto.oferta > 0">
+                  <span class="circulo"><p>{{producto.oferta}}%</p></span>
+                </span>
+              </div> 
+              <a href="" title="{{producto.nombre}}" class="event">
+                <img src="{{producto.foto}}" alt="{{producto.nombre}}" title="{{producto.nombre}}" >
+              </a>
+          </div>
+               
+          <div class="producto_nombre">
+              <div class="producto-precio" *ngIf="producto.oferta  > 0">
+                <div class="precio_anterior _tachado">{{producto.precio}} €/kg</div>
+                <span class="precio rojo">{{producto.precio - (producto.precio * producto.oferta / 100) }} 
+                  <span class="moneda">€</span>
+                </span>
+              </div>
+              <div class="producto-precio" *ngIf="producto.oferta  == 0">
+                <span class="precio">{{producto.precio}}
+                  <span class="moneda">€</span>
+                </span>
+              </div>
+              <div class="precio_anterior _kilo">(12,48 € / Kilo)</div>
+              <h4 class="producto_nombre">{{producto.nombre}}  
+                <span class="producto_descripcion">
+                  {{producto.descripcion}}
+                </span>
+              </h4>
+             
+            <!--cantidad-->
+            <div class="btn-cantidad" role="group">
+              <button type="button" class="btn btn-default btn1" (click)="menosCantidad(producto)">-</button>
+              <input type="text" class="btn btn-default cantidad" value="{{producto.cantidad}}" readonly>
+              <button type="button" class="btn btn-default btn2" (click)="masCantidad(producto)">+</button>
+            </div>
+            <!--btn anadir-->
+            <div>
+              <button type="button" class="button anadir" (click)="anadirProductoCarro(producto)">Añadir al carrito</button>
+            </div>
+          </div>
+      </div><!--fin productos listado-->
+    </div><!--fin col-md-3 col-sm-4-->
+  </div>  <!--fin row--> 
+</div> <!--fin container-->
+
+    
+
+
+<footer class="container-fluid text-center">
+  <p>Patricia de la Hoz</p>  
+</footer>

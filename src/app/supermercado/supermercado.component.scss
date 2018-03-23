@@ -1,0 +1,149 @@
+
+*{
+    font-family: Open Sans, Arial, sans-serif;
+}
+
+h1{
+    font-size: 1.5em;
+    color: #e2dfdf;
+    text-transform: uppercase;
+}
+
+.btn-cantidad {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #e1e1e1;
+    border-radius: 2rem;
+    margin: 0px 70px 10px;
+    vertical-align: middle;
+    background-color: #f7f7f7;
+    
+    .cantidad {
+        width: 40%;
+        border: none;
+        outline: none;
+        background-color: transparent;
+    }
+
+    .btn-default {
+        background-color: transparent;
+    }
+
+    .btn1,.btn2{
+        border: none;
+        outline: none;
+        vertical-align: top;
+        height: 2.2rem;
+        width: 2.2rem;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 2.2rem;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 18px;
+    }
+}
+
+.productos_listado {
+    margin-bottom: 25px;
+    border: 1px solid #cecece;
+    //height: 500px;
+
+    .badge {
+        display: inline-block;
+        margin-right: .25em;
+        background: transparent;
+        position: absolute;
+    
+        .circulo {
+            height: 35px;
+            width: 55px;
+            background-color: #ED5A5A;
+            border-radius: 40%;
+            display: inline-block;
+    
+            p{
+                margin-top: 14%;
+                font-size: 1.5em;
+            }
+        }
+    
+    }
+
+    img {
+        width: 100%;
+        min-width: auto;
+        padding: 25px;
+    }
+
+    .producto_nombre{
+        letter-spacing: .005em;
+        text-align: left;
+        line-height: 1.6;
+        font-size: 13px;
+        font-weight: 300;
+        overflow: hidden;
+        margin: 1rem;
+        color: grey;
+        text-transform: uppercase;
+
+        .producto-precio{
+            margin: 0 0 0 .75em;
+    
+            .precio {
+                font-size: 1.2em;
+                color: grey;
+                
+                .moneda{
+                    font-size: .75em;
+                }
+            }
+    
+            .rojo{
+                color: #ED5A5A;  
+            }  
+            
+            .precio_anterior._tachado {
+                background: url(../../assets/img/tachado.png) center center;
+                display: inline-block;
+                font-size: 1em;
+                color: #6b6868;
+                margin-right: .5rem;
+                
+            }
+        
+        }
+
+        .precio_anterior._kilo {
+            display: inline-block;
+            font-size: 13px;
+            color: #8f8f8f;
+            vertical-align: baseline;
+            font-weight: 300;
+            margin: 0 0 0 .75em;
+        }
+
+        .producto_descripcion {
+            text-transform: lowercase;
+        }
+    
+
+        .button.anadir {
+            display: block;
+            background-color: #88cc88;
+            border: solid 1px #88cc88;
+            color: #ffffff;
+            font-size: 12px;
+            font-family: Open Sans, Arial, sans-serif;
+            text-transform: uppercase;
+            width: 100%;
+            padding: 1rem;
+            line-height: 12px;
+            min-width: 104px;
+        }
+    }    
+}
+
+
+

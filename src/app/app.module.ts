@@ -1,44 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// Importar formularios para usar propiedades *ng
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// Importar modulo HTTP
-import { HttpClientModule } from '@angular/common/http';
 
-// Pipes
-import { FilterViviendas } from './pipes/filter-viviendas.pipe';
-// Componentes
+//componentes
 import { AppComponent } from './app.component';
-import { UnoComponent } from './uno/uno.component';
-// Servicios
-import { ServicioService } from './providers/servicio.service';
-import { InmobiliariaComponent } from './inmobiliaria/inmobiliaria.component';
-import { ViviendaComponent } from './inmobiliaria/vivienda/vivienda.component';
-import { ViviendasService } from './providers/viviendas.service';
+import { SupermercadoComponent } from './supermercado/supermercado.component';
 
+//servicios
+import { ProductoService } from './providers/producto.service';
+
+//pipes
+//pipes
+import { ProductoPipe } from './pipes/producto.pipe';
+
+import { FormsModule } from '@angular/forms';
+import { CarritoComponent } from './supermercado/carrito/carrito.component';
 
 
 @NgModule({
   declarations: [
-    // Pipes
-    FilterViviendas,
-    // Componentes
     AppComponent,
-    UnoComponent,
-    InmobiliariaComponent,
-    ViviendaComponent
+    SupermercadoComponent,
+    ProductoPipe,
+    CarritoComponent 
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    FormsModule
   ],
-  providers: [
-    HttpClientModule,
-    ServicioService,
-    ViviendasService
-  ],
+  providers: [ ProductoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

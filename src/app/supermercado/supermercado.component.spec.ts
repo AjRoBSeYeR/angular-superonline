@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UnoComponent } from './uno.component';
+import { SupermercadoComponent } from './supermercado.component';
 
-describe('UnoComponent', () => {
-  let component: UnoComponent;
-  let fixture: ComponentFixture<UnoComponent>;
+describe('SupermercadoComponent', () => {
+  let component: SupermercadoComponent;
+  let fixture: ComponentFixture<SupermercadoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UnoComponent ]
+      declarations: [ SupermercadoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UnoComponent);
+    fixture = TestBed.createComponent(SupermercadoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
