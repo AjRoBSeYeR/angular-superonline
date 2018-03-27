@@ -1,3 +1,5 @@
+import { ProductoService } from "../providers/producto.service";
+
 export class Producto{
 
     //atributos
@@ -28,6 +30,20 @@ export class Producto{
         this.descripcion = descripcion;
         this.id=id;
         
+    }
+
+    static clone( pClone: Producto): Producto{
+
+        let p = new Producto();
+        p.id =  pClone.id;
+        p.cantidad = pClone.cantidad;
+        p.descripcion = pClone.descripcion;
+        p.foto = pClone.foto;
+        p.nombre = pClone.nombre;
+        p.precio = pClone.precio;
+        p.oferta = pClone.oferta;
+        
+        return p;
     }
 
 }

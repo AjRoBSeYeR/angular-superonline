@@ -12,6 +12,7 @@ export class SupermercadoComponent implements OnInit {
 
   stock: Producto[];
   carrito: Producto[];
+  totalProducto: number;
   subtotal: number;
   descuentos: number;
   total: number;
@@ -21,6 +22,7 @@ export class SupermercadoComponent implements OnInit {
     console.log('SupermercadoComponent constructor');        
     this.stock = [];     
     this.carrito = [];  
+    this.totalProducto=0;
     this.total = 0;
     this.subtotal = 0;
     this.descuentos = 0;
@@ -55,12 +57,18 @@ export class SupermercadoComponent implements OnInit {
   anadirProductoCarro(producto: Producto): void {  
     console.log('SupermercadoComponent anadirProductoCarro');
     //comprobar que no exista el producto, en tal caso eliminar
+    let cantidadAnterior = 0;
     this.carrito = this.carrito.filter(el=>{ 
-      console.warn('   existia producto eliminado del carro');
+      console.warn('   existia producto eliminado del carro');  
+      if ( el.id === producto.id ){
+        cantidadAnterior = el.cantidad;
+      }    
       return (el.id !== producto.id); 
     });
-
-    this.carrito.push(producto);    
+    
+    let pNuevo = Producto.clone(producto);
+    pNuevo.cantidad += cantidadAnterior;
+    this.carrito.push( pNuevo );    
     this.totalCarrito();
     console.log('ProductoComponent añadir producto al carro %o', this.carrito);
   }
@@ -112,7 +120,9 @@ export class SupermercadoComponent implements OnInit {
     let _total = 0;
     let _descuentos = 0;
     let _subtotal = 0;
+    let _totalProducto = 0;
     for(let producto of this.carrito){
+      _totalProducto += producto.cantidad;
       if(producto.oferta > 0){        
         _descuentos += ((producto.precio * producto.oferta)/100 ) * producto.cantidad;
         _total += ( producto.precio - ( (producto.precio * producto.oferta)/100 )) * producto.cantidad;
@@ -124,6 +134,7 @@ export class SupermercadoComponent implements OnInit {
     this.total = _total;
     this.subtotal = _subtotal;
     this.descuentos = _descuentos;
+    this.totalProducto = _totalProducto;
   } 
 
   

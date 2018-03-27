@@ -13,6 +13,7 @@ import { Producto } from '../../model/producto';
 export class CarritoComponent implements OnInit { 
   
   @Input('carrito')carrito : Producto[];
+  @Input('totalProducto')totalProducto : number;
   @Input('total')total : number;
   @Input('subtotal')subtotal : number;
   @Input('descuentos')descuentos : number;
